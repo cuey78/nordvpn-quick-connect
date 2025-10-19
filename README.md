@@ -5,6 +5,7 @@
 A feature-rich GNOME Shell extension that provides superior NordVPN connectivity with enhanced country selection and quick-access functionality. This extension addresses the limitations of the standard NordVPN tray icon by offering an intuitive dropdown menu for effortless server selection.
 
 ---
+<img width="367" height="383" alt="Screenshot From 2025-10-19 14-26-45" src="https://github.com/user-attachments/assets/f592fd1b-70f5-4546-a0ce-a5e1a55e0962" />
 
 ## 🌟 Features
 
