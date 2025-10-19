@@ -19,20 +19,9 @@ A feature-rich GNOME Shell extension that provides superior NordVPN connectivity
 - **Real-time Status**  
   Live connection status and server information
 
-- **Streaming-Optimized**  
-  Quick access to streaming-optimized servers
-
-- **Custom Server Search**  
-  Find specific servers by name or location
-
 - **Minimal Resource Usage**  
   Lightweight and efficient background operation
 
-- **Auto-reconnect**  
-  Automatic reconnection on network changes
-
-- **Favorite Servers**  
-  Save and quickly access your preferred servers
 
 ---
 
