@@ -2,7 +2,7 @@
 
 **Gnome Shell Extension - Enhanced VPN Connectivity**
 
-A feature-rich GNOME Shell extension that provides superior NordVPN connectivity with enhanced country selection and quick-access functionality. This extension addresses the limitations of the standard NordVPN tray icon by offering an intuitive dropdown menu for effortless server selection.
+A GNOME Shell extension that provides superior NordVPN connectivity with enhanced country selection and quick-access functionality. This extension addresses the limitations of the standard NordVPN tray icon by offering an intuitive dropdown menu for effortless server selection.
 
 ---
 
