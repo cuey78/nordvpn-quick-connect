@@ -44,5 +44,4 @@ cd nordvpn-quick-connect
 
 cp -r nordvpn-quick-connect@cuey78 ~/.local/share/gnome-shell/extensions/
 
-gnome-extensions enable nordvpn-quick-connect@cuey78
-
+gnome-extensions enable nordvpn-quick-connect@cuey78.github.com
