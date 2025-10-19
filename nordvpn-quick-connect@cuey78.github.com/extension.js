@@ -203,21 +203,23 @@ export default class NordVPNExtension {
         }
     }
 
-    _connectToCountry(country) {
-        try {
-            const countryParam = country.includes(' ') ? `"${country}"` : country;
-            GLib.spawn_command_line_async(`nordvpn connect ${countryParam}`);
-            this._statusItem.label.text = `Connecting to ${country}...`;
-            
-            GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 3, () => {
-                this._updateStatus();
-                return GLib.SOURCE_REMOVE;
-            });
-        } catch (e) {
-            this._statusItem.label.text = 'Connection failed';
-            log(`NordVPN connection error: ${e}`);
-        }
+   _connectToCountry(country) {
+    try {
+        // Convert display name to NordVPN CLI format
+        // e.g., "United States" -> "United_States"
+        const cliCountryName = country.replace(/ /g, '_');
+        GLib.spawn_command_line_async(`nordvpn connect ${cliCountryName}`);
+        this._statusItem.label.text = `Connecting to ${country}...`;
+        
+        GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 3, () => {
+            this._updateStatus();
+            return GLib.SOURCE_REMOVE;
+        });
+    } catch (e) {
+        this._statusItem.label.text = 'Connection failed';
+        log(`NordVPN connection error: ${e}`);
     }
+}
 
     _disconnect() {
         try {
