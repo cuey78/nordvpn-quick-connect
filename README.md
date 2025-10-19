@@ -1,38 +1,45 @@
-NordVPN Quick Connect
+# NordVPN Quick Connect
 
-Gnome Shell Extension - Enhanced VPN Connectivity
+**Gnome Shell Extension - Enhanced VPN Connectivity**
 
 A feature-rich GNOME Shell extension that provides superior NordVPN connectivity with enhanced country selection and quick-access functionality. This extension addresses the limitations of the standard NordVPN tray icon by offering an intuitive dropdown menu for effortless server selection.
 
-🌟 Features
+---
 
-    Enhanced Country Selection: Easy-to-use dropdown menu for quick country/server selection
+## 🌟 Features
 
-    Quick Connect: One-click connection to fastest available server
+- **Enhanced Country Selection**  
+  Easy-to-use dropdown menu for quick country/server selection
 
-    Real-time Status: Live connection status and server information
+- **Quick Connect**  
+  One-click connection to the fastest available server
 
-    Streaming-Optimized: Quick access to streaming-optimized servers
+- **Real-time Status**  
+  Live connection status and server information
 
-    Custom Server Search: Find specific servers by name or location
+- **Streaming-Optimized**  
+  Quick access to streaming-optimized servers
 
-    Minimal Resource Usage: Lightweight and efficient background operation
+- **Custom Server Search**  
+  Find specific servers by name or location
 
-    Auto-reconnect: Automatic reconnection on network changes
+- **Minimal Resource Usage**  
+  Lightweight and efficient background operation
 
-    Favorite Servers: Save and quickly access your preferred servers
+- **Auto-reconnect**  
+  Automatic reconnection on network changes
 
-🚀 Installation
+- **Favorite Servers**  
+  Save and quickly access your preferred servers
 
-# Clone the repository
+---
+
+## 🚀 Installation
+
+### 1. Clone the Repository
+
 git clone https://github.com/cuey78/nordvpn-quick-connect.git
 cd nordvpn-quick-connect
-
-# Copy to extensions directory
 cp -r nordvpn-quick-connect@cuey78 ~/.local/share/gnome-shell/extensions/
-
-# Enable the extension
 gnome-extensions enable nordvpn-quick-connect@cuey78
 
-# Restart GNOME Shell (Alt+F2, type 'r', then Enter)
-# Or log out and log back in
