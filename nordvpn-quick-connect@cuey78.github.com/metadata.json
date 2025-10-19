@@ -2,6 +2,9 @@
   "name": "NordVPN Quick Connect",
   "description": "NordVPN connection manager for GNOME panel",
   "uuid": "nordvpn-quick-connect@cuey78.github.com",
-  "shell-version": ["48"],
+  "shell-version": [
+    "48",
+    "49"
+  ],
   "version": 1
 }
