@@ -4,9 +4,11 @@ import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 import St from 'gi://St';
 import Clutter from 'gi://Clutter';
 import GLib from 'gi://GLib';
+import Gio from 'gi://Gio';
 
 export default class NordVPNExtension {
-    constructor() {
+    constructor(metadata) {
+        this._metadata = metadata;
     }
 
     enable() {
@@ -15,12 +17,16 @@ export default class NordVPNExtension {
         // Create panel button
         this._button = new PanelMenu.Button(0.0, 'NordVPN Indicator');
         
-        // Add label to button
-        this._label = new St.Label({
-            text: 'NordVPN',
-            y_align: Clutter.ActorAlign.CENTER
+        // Add icon to button instead of text label
+        const iconPath = `${this._metadata.path}/nord.png`;
+        const iconFile = Gio.File.new_for_path(iconPath);
+        
+        this._icon = new St.Icon({
+            gicon: new Gio.FileIcon({ file: iconFile }),
+            style_class: 'system-status-icon',
+            icon_size: 16
         });
-        this._button.add_child(this._label);
+        this._button.add_child(this._icon);
         
         // Add to panel
         Main.panel.addToStatusArea('nordvpn-indicator', this._button);
@@ -163,7 +169,6 @@ export default class NordVPNExtension {
         try {
             GLib.spawn_command_line_async('nordvpn connect');
             this._statusItem.label.text = 'Connecting...';
-            this._label.set_text('VPN ...');
             
             GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 3, () => {
                 this._updateStatus();
@@ -186,19 +191,15 @@ export default class NordVPNExtension {
                     
                     if (countryMatch && cityMatch) {
                         this._statusItem.label.text = `Connected to ${countryMatch[1]}, ${cityMatch[1]}`;
-                        this._label.set_text('VPN ✓');
                     } else {
                         this._statusItem.label.text = 'Connected';
-                        this._label.set_text('VPN ✓');
                     }
                 } else {
                     this._statusItem.label.text = 'Disconnected';
-                    this._label.set_text('NordVPN');
                 }
             }
         } catch (e) {
             this._statusItem.label.text = 'Error checking status';
-            this._label.set_text('VPN ?');
         }
     }
 
@@ -207,7 +208,6 @@ export default class NordVPNExtension {
             const countryParam = country.includes(' ') ? `"${country}"` : country;
             GLib.spawn_command_line_async(`nordvpn connect ${countryParam}`);
             this._statusItem.label.text = `Connecting to ${country}...`;
-            this._label.set_text('VPN ...');
             
             GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 3, () => {
                 this._updateStatus();
@@ -223,7 +223,6 @@ export default class NordVPNExtension {
         try {
             GLib.spawn_command_line_async('nordvpn disconnect');
             this._statusItem.label.text = 'Disconnecting...';
-            this._label.set_text('VPN ...');
             
             GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 2, () => {
                 this._updateStatus();
