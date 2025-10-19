@@ -39,7 +39,10 @@ A feature-rich GNOME Shell extension that provides superior NordVPN connectivity
 ### 1. Clone the Repository
 
 git clone https://github.com/cuey78/nordvpn-quick-connect.git
+
 cd nordvpn-quick-connect
+
 cp -r nordvpn-quick-connect@cuey78 ~/.local/share/gnome-shell/extensions/
+
 gnome-extensions enable nordvpn-quick-connect@cuey78
 
